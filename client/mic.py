@@ -224,7 +224,7 @@ class Mic:
         # generation
         lastN = [THRESHOLD * 1.2 for i in range(30)]
 
-        for i in range(0, RATE / CHUNK * LISTEN_TIME):
+        for i in range(0, (RATE / CHUNK) * LISTEN_TIME):
 
             data = stream.read(CHUNK)
             frames.append(data)
