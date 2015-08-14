@@ -210,6 +210,8 @@ class Mic:
         if THRESHOLD is None:
             THRESHOLD = self.fetchThreshold()
 
+	self.say("Yes?")
+
         self.speaker.play(jasperpath.data('audio', 'beep_hi.wav'))
 
         # prepare recording stream

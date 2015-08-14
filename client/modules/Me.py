@@ -1,8 +1,9 @@
 # -*- coding: utf-8-*-
 import re
 
-WORDS = ["YOU", "WHO"]
+WORDS = ["YOU", "WHO", "WHAT", "HI", "HELLO"]
 
+PRIORITY = 40
 
 def handle(text, mic, profile):
     """
@@ -15,7 +16,7 @@ def handle(text, mic, profile):
                    number)
     """
 
-    mic.say("I'm Aubrey. I currently am keeper of the house lights, but I'm always learning new tricks too. Just ask.")
+    mic.say("Hi, I'm Aubrey. I currently am keeper of the house lights, but I'm always learning new tricks too. Just ask.")
 
 
 def isValid(text):
@@ -25,4 +26,4 @@ def isValid(text):
         Arguments:
         text -- user-input, typically transcribed speech
     """
-    return bool(re.search(r'\byou\b', text, re.IGNORECASE)) and any(word in text.upper() for word in ["WHO", "WHAT"])
+    return bool(re.search(r'\A(who|what) are you\Z', text, re.IGNORECASE)) or bool(re.search(r'\Ayou are (who|whom|what)\Z', text, re.IGNORECASE)) or bool(re.search(r'\b(hi|hello)\b', text, re.IGNORECASE))

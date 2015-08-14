@@ -52,7 +52,7 @@ def handle(text, mic, profile):
     	responseDecode = json.loads(response)
     
     if responseDecode:
-        messages = ["You can thank Thomas Edison.", "I hope that's good."]
+        messages = ["You can thank Thomas Edison.", "All finished."]
     else:
     	messages = ["Sorry, "+profile['first_name']+", I couldn't fiddle with the lights."]
 
@@ -68,6 +68,8 @@ def isValid(text):
         Arguments:
         text -- user-input, typically transcribed speech
     """
+#todo: this needs to be faster
+
     apiai_return = False
     global CURRENT_ACTION_OBJ
     
